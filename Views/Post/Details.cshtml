@@ -1,0 +1,57 @@
+﻿@model TalkAbout_Term_Project.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.posted_by)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.posted_by)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.postdate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.postdate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.post_subject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.post_subject)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.likes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.likes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.post_content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.post_content)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.category)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.category)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.postId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

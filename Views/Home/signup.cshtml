@@ -1,0 +1,90 @@
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
+@model TalkAbout_Term_Project.UserAccount
+
+@section navigation_bar{
+    <li><a href="~/Home/Index">Home page</a></li>
+    <li><a href="~/Home/Aboutus">About Us</a></li>
+    <li class="active"><a href="#">SignUp</a></li>
+    <li><a href="~/Home/Contact">Contact Us</a></li>  
+    }
+
+<!--
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#email').blur(function () {
+            var email_id = $('#email').val();
+            if (email_id != "") {
+                var div = $('#signup-response');
+                div.hide()
+                   .addClass('response-waiting')
+                   .text('Please Wait...')
+                   .fadeIn(100);
+                $.getJSON("/Account/check_user?email=" + email_id, function (data) {
+                    if (data == null) {
+                        div.fadeOut(200, function () {
+                            $(this).removeClass('response-waiting')
+                                   .addClass('response-success')
+                                   .text("Available")
+                                   .fadeIn(200, function () {
+                                       //set timeout to hide response message
+                                       setTimeout(function () {
+                                           div.fadeOut(200, function () {
+                                               $(this).removeClass('response-success');
+                                           });
+                                       }, 3000);
+                                   });
+                        });
+                    }
+                    else {
+                        div.fadeOut(200, function () {
+                            $(this).removeClass('response-waiting')
+                                   .addClass('response-error')
+                                   .text("Already Occupied")
+                                   .fadeIn(200, function () {
+                                       //set timeout to hide response message
+                                       setTimeout(function () {
+                                           div.fadeOut(200, function () {
+                                               $(this).removeClass('response-error');
+                                           });
+                                       }, 3000);
+                                   });
+                        });
+
+                    }
+                });
+            }
+        });
+    });
+</script>
+    -->
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="wrapper">
+	    <article class="grid_12">
+		    <h3>Sign-up Form</h3>
+            @using (Html.BeginForm("signup_new_user", "Account", FormMethod.Post, new { id = "contact-form2" }))
+            {
+                @Html.ValidationSummary(true)
+			    <fieldset>
+                            
+				    <label>@Html.LabelFor(model => model.username,new {@class="text-form"})@Html.TextBoxFor(model => model.username)@Html.ValidationMessageFor(model => model.username)</label>
+				    <label><span class="text-form">Email:</span>@Html.TextBoxFor(model => model.email) @Html.ValidationMessageFor(model => model.email)<span id="signup-response" class="text-form"></span></label>
+				    <label><span class="text-form">Password:</span>@Html.PasswordFor(model => model.password) @Html.ValidationMessageFor(model => model.password)</label>
+				    <label>@Html.LabelFor(model => model.confirmPassword,new {@class="text-form"})@Html.PasswordFor(model => model.confirmPassword)@Html.ValidationMessageFor(model => model.confirmPassword)</label>							  
+				    <label><span class="text-form"></span><input type="submit" value="Signup"></label>
+                    <div class="buttons2">
+					    <a href="#" onClick="document.getElementById('contact-form2').reset()">Clear</a>
+					    <a href="#" id="sub" onClick="document.getElementById('contact-form2').submit()">Signup</a>
+				    </div> 
+			    </fieldset>
+            }
+	    </article>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

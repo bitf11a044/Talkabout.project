@@ -1,0 +1,43 @@
+﻿@{Layout = "~/Views/Shared/_Layout_logged_in.cshtml";}
+
+@section navigation_bar{
+    <li><a href="~/Post/Index">Post</a></li>
+    <li><a href="~/User/Profile">Profile</a></li>
+    <li><a href="~/Home/UploadPost">Ask Question</a></li>
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12">
+        <div class="wrapper">
+            <div class="content1">
+                @using (Html.BeginForm("new_post", "Post", FormMethod.Post, new { id = "contact-form2" }))
+                {
+                    <fieldset>
+                        <legend>Make a new Post</legend>
+                        
+                        <label><span class="text-form">Title</span><input name="post_subject" id="title" type="text" /></label>
+                        <label><span class="text-form">Category</span>
+                            <select name="category">
+                                <option value=""></option>
+                                <option value="Installation">Installation</option>
+                                <option value="General Support">General Support</option>
+                                <option value="Plugins">Plugins</option>
+                                <option value="Themes">Themes</option>
+                                <option value="Development">Development</option>
+                            </select>
+                        </label>
+                        <label><span class="text-form">Content</span><textarea name="post_content"></textarea></label>
+                        <div class="buttons2">
+					    <a href="#" onClick="document.getElementById('contact-form2').reset()">Clear</a>
+					    <a href="#" id="sub" onClick="document.getElementById('contact-form2').submit()">Post</a>
+				    </div> 
+                        </fieldset>
+                }
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>

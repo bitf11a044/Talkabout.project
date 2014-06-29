@@ -1,0 +1,90 @@
+﻿@{Layout = "~/Views/Shared/_Layout_admin.cshtml";}
+@model TalkAbout_Term_Project.User
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section navigation_bar{
+    <li><a href="~/Admin/Index">Users</a></li>
+    <li><a href="~/Admin/Posts">Posts</a></li> 
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12">
+        <div class="wrapper">
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Create User</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.firstName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.firstName)
+            @Html.ValidationMessageFor(model => model.firstName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.lastName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.lastName)
+            @Html.ValidationMessageFor(model => model.lastName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.signupdate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.signupdate)
+            @Html.ValidationMessageFor(model => model.signupdate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.gender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.gender)
+            @Html.ValidationMessageFor(model => model.gender)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.profile_picture)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.profile_picture)
+            @Html.ValidationMessageFor(model => model.profile_picture)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+            </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

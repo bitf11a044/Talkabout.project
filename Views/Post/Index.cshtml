@@ -1,0 +1,64 @@
+﻿@model IEnumerable<TalkAbout_Term_Project.Post>
+
+@{Layout = "~/Views/Shared/_Layout_logged_in.cshtml";}
+
+@section navigation_bar{
+    <li><a href="~/Post/Index">Post</a></li>
+    <li><a href="~/User/Profile">Profile</a></li>
+    <li><a href="~/Home/UploadPost">Ask Question</a></li>
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12" style="min-height:300px;">
+        <div class="wrapper">
+            <table style="border-color:black;border-width:5px;">
+    <tr>
+        <th style="width:350px;text-align:left;padding-bottom:25px;">
+            @Html.DisplayNameFor(model => model.post_subject)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;">
+            @Html.DisplayNameFor(model => model.category)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;">
+            @Html.DisplayNameFor(model => model.posted_by)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;">
+            @Html.DisplayNameFor(model => model.postdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td style="width:350px;">
+            <a href="../Post/post?id=@item.postId">@Html.DisplayFor(modelItem => item.post_subject)</a>
+        </td>
+        <td style="width:100px;">
+            @Html.DisplayFor(modelItem => item.category)
+        </td>
+        <td style="width:100px;">
+            @Html.DisplayFor(modelItem => item.posted_by)
+        </td>
+        <td style="width:100px;">
+            @Html.DisplayFor(modelItem => item.postdate)
+        </td>
+        @if (item.posted_by.Equals(@ViewBag.Username))
+        {
+            <td>
+            @Html.ActionLink("Edit", "Edit", new { postid=item.postId }) |
+            @Html.ActionLink("Delete", "Delete", new {  postid=item.postId   })
+        </td> 
+        }
+    </tr>
+}
+
+</table>
+
+        </div>
+        
+    </div>
+    <div class="block"></div>
+</div>
+    </div>

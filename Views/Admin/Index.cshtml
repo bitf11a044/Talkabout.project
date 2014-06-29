@@ -1,0 +1,69 @@
+﻿@{Layout = "~/Views/Shared/_Layout_admin.cshtml";}
+@model IEnumerable<TalkAbout_Term_Project.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section navigation_bar{
+    <li><a href="~/Admin/Index">Users</a></li>
+    <li><a href="~/Admin/Posts">Posts</a></li>  
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12" style="min-height:300px;">
+        <div class="wrapper">
+
+
+<table>
+    <tr>
+        <th style="width:100px;text-align:left;padding-bottom:25px;font-size:20px;">
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;font-size:20px;">
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;font-size:20px;">
+            @Html.DisplayNameFor(model => model.username)
+        </th>
+        <th style="width:200px;text-align:left;padding-bottom:25px;font-size:20px;">
+            @Html.DisplayNameFor(model => model.signupdate)
+        </th>
+        <th style="width:100px;text-align:left;padding-bottom:25px;font-size:20px;">
+            @Html.DisplayNameFor(model => model.gender)
+        </th>
+        <th style="width:50px;text-align:left;padding-bottom:25px;"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.signupdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.userId })
+        </td>
+    </tr>
+}
+
+</table>
+
+            </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>

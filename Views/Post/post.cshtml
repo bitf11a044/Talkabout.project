@@ -1,0 +1,56 @@
+﻿@{Layout = "~/Views/Shared/_Layout_logged_in.cshtml";}
+@model TalkAbout_Term_Project.Post
+@section navigation_bar{
+    <li><a href="~/Post/Index">Post</a></li>
+    <li><a href="~/User/Profile">Profile</a></li>
+    <li><a href="~/Home/UploadPost">Ask Question</a></li>
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12">
+        <div class="wrapper">
+            <h4>Post</h4>
+            <div class="a-post">
+                <div class="post-title">
+                        <h4>@Model.post_subject</h4>
+                        </div>
+                <div class="post-holder">
+                    <div class="post-info">
+                        @Model.posted_by<br/>
+                        <img src="@ViewBag.profile_picture" width="100" height="100" ><br/>
+                        @Model.postdate
+                    </div>
+                    <div class="post-text">
+                        @Model.post_content
+                    </div>
+                </div>
+            </div>
+            <h4>Comments</h4>
+            @foreach(var obj in Model.Comments)
+            {
+            <div class="">
+                <div class="comment-holder">
+                    <div class="comment-info">
+                        @obj.commented_by<br/>
+                        @obj.commnet_time
+                    </div>
+                    <div class="comment-text">
+                        @obj.comment_content
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+        <div style="margin-top:100px;">
+            @using (Html.BeginForm("MakeComment", "Post", FormMethod.Post, new { postid=Request["id"] }))
+            {
+                <textarea name="comment_content" style="width:90%;min-height:150px;font-size:20px;color:#808080">Comment...</textarea><br/>
+                <input type="submit" value="Comment"> 
+            }
+            </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>

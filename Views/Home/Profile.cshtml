@@ -1,0 +1,50 @@
+﻿@{Layout = "~/Views/Shared/_Layout_logged_in.cshtml";}
+@model TalkAbout_Term_Project.User
+@section navigation_bar{
+    <li><a href="~/Post/Index">Post</a></li>
+    <li><a href="~/User/Profile">Profile</a></li>
+    <li><a href="~/Home/UploadPost">Ask Question</a></li>
+    <li><a href="~/User/Contact">Contact Us</a></li>    
+    }
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            var username = "Dani"
+                var div = $('#profile_pic');
+                $.getJSON("/Account/profilePicture?username=" + username, function (data) {
+                    if (data != null) {
+                        div.attr("src", data);
+                    }
+                });
+    });
+</script>
+
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12">
+        <div class="wrapper">
+            <div class="content1">
+                
+                @using (Html.BeginForm("UpdateProfile","Account",FormMethod.Post,new { id="contact-form2", enctype = "multipart/form-data", username="Dani" }))
+                {
+                    <fieldset>
+                        <legend>Profile</legend>
+                        
+                        <label><span class="text-form">Profile Picture: </span><a class="fancybox" href="@Model.profile_picture"><img src="@Model.profile_picture" id="profile_pic" width="200" height="200"></a></label>
+                        <label><span class="text-form">Update picture: </span><input type="file" name="profile_picture" id="profile_picture" value="Update picture"/></label>
+                        <label><span class="text-form">First Name: </span>@Html.EditorFor(model => model.firstName)</label>
+                        <label><span class="text-form">Last Name: </span>@Html.EditorFor(model => model.lastName)</label>
+                        <label><span class="text-form">Gender: </span>Male<input name="gender" id="male" type="radio" value="Male">Female<input name="gender" id="female" type="radio" value="Female"/></label>
+                        <div class="buttons2">
+					    <a href="#" id="sub" onClick="document.getElementById('contact-form2').submit()">Update</a>
+				        </div> 
+                        </fieldset>
+                }
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>

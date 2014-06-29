@@ -1,0 +1,68 @@
+﻿@{Layout = "~/Views/Shared/_Layout_logged_in.cshtml";}
+@model TalkAbout_Term_Project.Post
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+<div class="content-bg">
+    <div class="main">
+        <div class="container_12">
+        <div class="wrapper">
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.posted_by)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.posted_by)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.postdate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.postdate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.post_subject)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.post_subject)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.likes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.likes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.post_content)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.post_content)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.category)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.category)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+        </div>
+        </div>
+    </div>
+    <div class="block"></div>
+</div>

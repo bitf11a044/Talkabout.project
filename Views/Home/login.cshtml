@@ -1,0 +1,29 @@
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
+@model TalkAbout_Term_Project.UserAccount
+@section navigation_bar{
+    <li><a href="~/Home/Index">Home page</a></li>
+    <li><a href="~/Home/Aboutus">About Us</a></li>
+    <li><a href="~/Home/Signup">SignUp</a></li>
+    <li><a href="~/Home/Contact">Contact Us</a></li>  
+    }
+
+<div class="ic">More Website Templates TemplateMonster.com. December10, 2011!</div>
+    <div class="content-bg">
+        <div class="main">
+            <div class="wrapper">
+	        <article class="grid_12">
+		        <h3>Login</h3>
+                @using (Html.BeginForm( "Login_user", "Account", FormMethod.Post, new { id="contact-form2" })){
+                    <fieldset>
+				        <label><span class="text-form">Userame:</span>@Html.TextBoxFor( model => model.username )</label>                              
+				        <label><span class="text-form">Password:</span>@Html.PasswordFor( model=>model.password )</label>						  
+				        <div class="buttons2">
+					        <a href="#" onClick="document.getElementById('contact-form2').submit()">Login</a>
+				        </div> 
+			        </fieldset>
+                }
+	        </article>
+            </div>
+        </div>
+    </div>
+<div class="block"></div>
