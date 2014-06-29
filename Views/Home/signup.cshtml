@@ -73,10 +73,6 @@
 				    <label><span class="text-form">Password:</span>@Html.PasswordFor(model => model.password) @Html.ValidationMessageFor(model => model.password)</label>
 				    <label>@Html.LabelFor(model => model.confirmPassword,new {@class="text-form"})@Html.PasswordFor(model => model.confirmPassword)@Html.ValidationMessageFor(model => model.confirmPassword)</label>							  
 				    <label><span class="text-form"></span><input type="submit" value="Signup"></label>
-                    <div class="buttons2">
-					    <a href="#" onClick="document.getElementById('contact-form2').reset()">Clear</a>
-					    <a href="#" id="sub" onClick="document.getElementById('contact-form2').submit()">Signup</a>
-				    </div> 
 			    </fieldset>
             }
 	    </article>
